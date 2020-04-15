@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>item-detail</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col class="ion-text-center">
+                <div class="titleBar">
+                    <ion-img class="logoTitleImage" src='../../assets/logo.svg'></ion-img>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="textArea">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="7">
+                    <ion-img class="images" [src]="item.image"></ion-img>
+                </ion-col>
+                <ion-col size="5">
+                    <h2 class="titleText">{{item.modelType}}</h2>
+                        <p class="priceText"> ${{item.salePrice.toFixed(2)}}</p>
+                        <p class="bodyText lighterText">{{item.availableQuantity}} in stock</p>
+                    <div class="descriptionBox">
+                        <p class="bodyText"> {{item.description}}</p>
+                    </div>
+                    <div class="formBox">
+                        <p class="bodyText boldText"> Quantity: </p>
+                        <input [(ngModel)]="quantity" min="1" max="10" inputmode="number" class="quantityInput"
+                               required>
+                        <div class="submitButton" (click)="addToCart()">
+                            <p> Add to Cart </p>
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
+    </div>
 </ion-content>

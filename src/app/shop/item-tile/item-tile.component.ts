@@ -1,14 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Item} from '../../shared/item.model';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-item-tile',
-  templateUrl: './item-tile.component.html',
-  styleUrls: ['./item-tile.component.scss'],
+    selector: 'app-item-tile',
+    templateUrl: './item-tile.component.html',
+    styleUrls: ['./item-tile.component.scss'],
 })
 export class ItemTileComponent implements OnInit {
+    @Input() item: Item;
 
-  constructor() { }
+    constructor(private router: Router) {
+    }
 
-  ngOnInit() {}
+    ngOnInit() {
+    }
+
+    onClicked(itemId: string) {
+        this.router.navigate(['/', 'shop', 'detail', itemId]);
+    }
 
 }

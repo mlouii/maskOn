@@ -1,0 +1,30 @@
+div {
+  padding: 5%;
+  margin: 5% 9% 5% 9%;
+  border-radius: 20px;
+  text-align: center;
+
+  ion-img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 15vw;
+    width: 15vw;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .price {
+    font-weight: lighter;
+  }
+
+
+}
+
+div:hover {
+  //box-shadow: 5px 5px 4px grey;
+  box-shadow: 0 0 0 2pt #7892CB,
+              0px 5px 4px grey;
+
+}

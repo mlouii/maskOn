@@ -1,3 +1,26 @@
 <ion-app>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons class="ion-padding-start" slot="start">
+        <ion-button routerLink="/shop">
+          Shop
+        </ion-button>
+        <ion-button routerLink="/about">
+          About us
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons class="ion-padding-end" slot="end">
+        <ion-button routerLink="/cart" *ngIf="this.authService.userIsAuthenticated">
+          <p class="usersName"> {{this.authService.userId}} </p>
+          <ion-icon class="iconButton" name="cart-outline"></ion-icon>
+          {{this.cartQuantity}}
+        </ion-button>
+        <ion-button *ngIf="!this.authService.userIsAuthenticated">
+          Login to continue
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

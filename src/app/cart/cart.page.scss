@@ -1,0 +1,31 @@
+.titleBar {
+  background: #D5DEE3;
+  width: 100vw;
+
+  .logoTitleImage {
+    padding-top: 6.4vh;
+    padding-bottom: 6.4vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35vh;
+    width: 35vh;
+  }
+}
+
+.textArea {
+  margin-top: 4vh;
+}
+
+hr {
+  border-top: 1px solid #7892CB;
+  margin-top: 1vh;
+}
+
+.priceArea{
+  text-align: right;
+}
+
+.submitButton {
+  padding-top: 1.3vh;
+  padding-bottom: 1.3vh;
+}

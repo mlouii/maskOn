@@ -1,3 +1,23 @@
-<p>
-  cart-item works!
-</p>
+<div class="boundaries">
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="2">
+        <ion-img class="itemImage" [src]="data[0].image"></ion-img>
+      </ion-col>
+      <ion-col size="5">
+        <p class="titleText">{{data[0].modelType}}</p>
+      </ion-col>
+      <ion-col size="2">
+        <input (change)="onUpdate()" [(ngModel)]="currentQuantity" class="quantityInput">
+      </ion-col>
+      <ion-col size="2">
+        <p class="price lighterText bodyText"> ${{(data[0].salePrice * currentQuantity).toFixed(2)}}</p>
+      </ion-col>
+      <ion-col size="1">
+        <div class="removeButton" (click)="onRemove()">
+          <ion-icon class="ion-no-padding" name="close-outline"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

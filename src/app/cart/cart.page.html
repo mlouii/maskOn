@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div class="titleBar">
+          <ion-img class="logoTitleImage" src='../../assets/logo.svg'></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="textArea">
+    <p class="bodyText">Did you find everything that you needed?</p>
+    <hr>
+    <div *ngFor="let cartItem of this.cartItemsList">
+      <app-cart-item [data]="cartItem"></app-cart-item>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" offset="9">
+          <div class="priceArea">
+            <p class="bodyText">Total Cost:</p>
+            <p class="priceText">${{this.totalCartCost().toFixed(2)}}</p>
+          </div>
+          <div class="submitButton" (click)="checkOut()"> Check out </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 
 </ion-content>

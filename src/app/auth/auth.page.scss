@@ -1,0 +1,47 @@
+.titleBar {
+  background: #D5DEE3;
+  width: 100vw;
+
+  .logoTitleImage {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 55vh;
+    width: 35vh;
+  }
+}
+
+.content {
+  background: #D5DEE3;
+}
+
+.titleText {
+  font-weight: normal;
+}
+
+.loginArea {
+  border-radius: 30px;
+  text-align: center;
+  background: white;
+  padding: 5%;
+  margin-bottom: 10vh;
+  box-shadow: 0px 7px 4px grey;
+}
+
+.loginInput {
+  border: 0px;
+  background-color: #D5DEE3;
+  width: 80%;
+  padding: 10px;
+  margin: 2% 5% 2% 5%;
+  font-size: 1.33rem;
+}
+
+.submitButton {
+  width: 80%;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+

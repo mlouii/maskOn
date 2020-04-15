@@ -1,3 +1,6 @@
-<p>
-  item-tile works!
-</p>
+<div (click)=onClicked(item.id)>
+    <ion-img [src]="item.image">
+    </ion-img>
+    <p class="title"> {{item.modelType}} </p>
+    <p class="price"> ${{item.salePrice.toFixed(2)}} </p>
+</div>

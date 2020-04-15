@@ -1,0 +1,40 @@
+.titleBar {
+  background: #D5DEE3;
+  width: 100vw;
+
+  .logoTitleImage {
+    padding-top: 6.4vh;
+    padding-bottom: 6.4vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35vh;
+    width: 35vh;
+  }
+}
+
+.images {
+  width: 90%;
+}
+
+.descriptionBox {
+  margin-top: 2vh;
+}
+
+
+.formBox {
+  margin-top: 4vh;
+  .quantityInput {
+    margin-top: 1vh;
+    border: 1px solid #7892CB;
+    padding: 0.7vw;
+    width: 15%;
+    font-size: 1.33rem;
+    font-weight: 600;
+  }
+}
+
+.priceArea{
+  text-align: right;
+}
+
+

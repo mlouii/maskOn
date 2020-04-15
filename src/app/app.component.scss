@@ -1,0 +1,22 @@
+* {
+  ion-toolbar {
+    --background: #D5DEE3;
+  }
+
+  ion-content{
+    --padding-top: 0px;
+    --margin-top: 0px;
+  }
+
+  .iconButton{
+    margin-right: 3px;
+  }
+
+  ion-button{
+    text-transform: none;
+  }
+
+  .usersName {
+    margin-right: 7px;
+  }
+}

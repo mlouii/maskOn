@@ -24,3 +24,77 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: 'Josefin Slab';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/JosefinSlab-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Josefin Slab';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/assets/fonts/JosefinSlab-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Josefin Slab';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/JosefinSlab-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Josefin Slab';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/JosefinSlab-Light.ttf');
+}
+
+* {
+  font-family: 'Josefin Slab';
+
+
+  .textArea {
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .submitButton {
+    margin-top: 1.5vh;
+    text-align: center;
+    padding: 4px;
+    background-color: #7892CB;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+
+  .boldText {
+    font-weight: 600;
+  }
+
+  .bodyText {
+    font-size: 1.33rem;
+    margin: 0px;
+  }
+
+  .priceText {
+    font-weight: lighter;
+    font-size: 1.6rem;
+    margin: 0px;
+  }
+
+  .titleText {
+    font-weight: bold;
+    font-size: 2.13rem;
+  }
+
+  .lighterText {
+    font-weight: lighter;
+  }
+}
+

@@ -1,0 +1,43 @@
+.boundaries {
+  height: 13vh;
+  position: relative;
+}
+
+.quantityInput {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #7892CB;
+  padding: 0.7vw;
+  width: 60%;
+  font-size: 1.33rem;
+  font-weight: 600;
+}
+
+.price{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.titleText{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.itemImage {
+  height: 13vh;
+}
+
+.removeButton {
+  text-align: right;
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.33rem;
+  color: #cf3c4f;
+  padding-right: 5px;
+}
