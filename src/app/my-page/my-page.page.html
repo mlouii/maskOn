@@ -1,0 +1,28 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div class="titleBar">
+          <ion-img class="logoTitleImage" src='../../assets/logo.svg'></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="textArea">
+    <p class="bodyText">Your personal info</p>
+    <hr>
+    <div class="infoArea">
+      <p>Name: <span class="normalText">{{this.authService.firstName}}{{!!this.authService.middleName ? ' '+this.authService.middleName : ' '}} {{ this.authService.lastName }}</span></p>
+      <p>Phone: <span class="normalText">{{this.authService.phoneNumber}}</span></p>
+      <p>Email: <span class="normalText">{{this.authService.email}}</span></p>
+    </div>
+    <div class="addressArea">
+      <p>Address 1: <span class="normalText">{{this.authService.address1}}</span></p>
+      <p>Address 2: <span class="normalText">{{this.authService.address2}}</span></p>
+      <p>City: <span class="normalText">{{this.authService.city}}</span></p>
+      <p>State: <span class="normalText">{{this.authService.state}}</span></p>
+      <p>Zip Code: <span class="normalText">{{this.authService.zipCode}}</span></p>
+    </div>
+    <div class="signOutButton" (click)="this.authService.logout()"> Sign out </div>
+  </div>
+</ion-content>

@@ -25,14 +25,6 @@ export class CartPage implements OnInit {
     });
   }
 
-  totalCartCost() {
-    let total = 0;
-    this.cartItemsList.forEach(cartItem => {
-      total = total + (cartItem[0].salePrice * cartItem[1]);
-    });
-    return total;
-  }
-
   checkOut() {
     this.cartService.checkOutCart();
   }

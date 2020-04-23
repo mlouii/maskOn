@@ -8,16 +8,22 @@ import {Router} from '@angular/router';
     styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+    isLogin: boolean;
 
     constructor(private authService: AuthService, private router: Router, ) {
     }
 
     ngOnInit() {
+        this.isLogin = true;
     }
 
     onLogin() {
         this.authService.login();
         this.router.navigateByUrl('/shop');
+    }
+
+    switchType() {
+        this.isLogin = !this.isLogin;
     }
 
 }

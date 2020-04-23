@@ -10,22 +10,39 @@
     </ion-row>
   </ion-grid>
   <div class="textArea">
-    <p class="bodyText">Did you find everything that you needed?</p>
-    <hr>
-    <div *ngFor="let cartItem of this.cartItemsList">
-      <app-cart-item [data]="cartItem"></app-cart-item>
+    <div *ngIf="cartItemsList.length > 0">
+      <p class="bodyText">Did you find everything that you needed?</p>
+      <hr>
+      <div *ngFor="let cartItem of this.cartItemsList">
+        <app-cart-item [data]="cartItem"></app-cart-item>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3" offset="9">
+            <div class="priceArea">
+              <p class="bodyText">Total Cost:</p>
+              <p class="priceText">${{this.cartService.totalCartCost().toFixed(2)}}</p>
+            </div>
+            <div class="submitButton" (click)="checkOut()"> Check out </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" offset="9">
-          <div class="priceArea">
-            <p class="bodyText">Total Cost:</p>
-            <p class="priceText">${{this.totalCartCost().toFixed(2)}}</p>
-          </div>
-          <div class="submitButton" (click)="checkOut()"> Check out </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div class="emptyMessage" *ngIf="cartItemsList.length < 1">
+      <p class="bodyText">Your cart is empty!</p>
+    </div>
+    <p class="bodyText">Your past orders</p>
+    <hr>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" offset="6">
+            <div *ngFor="let orderItem of this.ordersList">
+            <app-order-item [order]="orderItem">
+            </app-order-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </div>
 
 </ion-content>

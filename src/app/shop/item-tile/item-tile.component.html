@@ -2,5 +2,6 @@
     <ion-img [src]="item.image">
     </ion-img>
     <p class="title"> {{item.modelType}} </p>
-    <p class="price"> ${{item.salePrice.toFixed(2)}} </p>
+    <p class="price" *ngIf="item.availableQuantity>0"> ${{item.salePrice.toFixed(2)}} </p>
+    <p class="soldOut" *ngIf="item.availableQuantity === 0">Sold Out!</p>
 </div>

@@ -10,12 +10,14 @@
         </ion-button>
       </ion-buttons>
       <ion-buttons class="ion-padding-end" slot="end">
-        <ion-button routerLink="/cart" *ngIf="this.authService.userIsAuthenticated">
-          <p class="usersName"> {{this.authService.userId}} </p>
+        <ion-button class="ion-no-padding ion-no-margin" routerLink="/my-page" *ngIf="this.authService.userIsAuthenticated">
+          <p class="usersName"> {{this.authService.firstName}} </p>
+        </ion-button>
+        <ion-button class="ion-no-padding ion-no-margin" routerLink="/cart" *ngIf="this.authService.userIsAuthenticated">
           <ion-icon class="iconButton" name="cart-outline"></ion-icon>
           {{this.cartQuantity}}
         </ion-button>
-        <ion-button *ngIf="!this.authService.userIsAuthenticated">
+        <ion-button *ngIf="!this.authService.userIsAuthenticated" routerLink="/auth">
           Login to continue
         </ion-button>
       </ion-buttons>

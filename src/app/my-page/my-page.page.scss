@@ -1,0 +1,55 @@
+.titleBar {
+  background: #D5DEE3;
+  width: 100vw;
+
+  .logoTitleImage {
+    padding-top: 6.4vh;
+    padding-bottom: 6.4vh;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35vh;
+    width: 35vh;
+  }
+}
+
+hr {
+  border-top: 1px solid #7892CB;
+  margin-top: 1vh;
+}
+
+.textArea {
+  margin-top: 4vh;
+}
+
+p {
+  margin-top: 0.2vh;
+  margin-bottom: 0.2vh;
+}
+
+.infoArea {
+  font-weight: 600;
+  font-size: 1.33rem;
+}
+
+.normalText {
+  font-weight: normal;
+}
+
+.addressArea {
+  margin-top: 4vh;
+  font-weight: 600;
+  font-size: 1.33rem;
+}
+
+.signOutButton {
+  cursor: pointer;
+  margin-top: 7vh;
+  text-align: center;
+  padding: 6px;
+  background-color: white;
+  border: 1px solid  #7892CB;
+  color: #7892CB;
+  font-weight: bold;
+  font-size: 1.6rem;
+  width: 300px;
+}

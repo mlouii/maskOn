@@ -26,6 +26,11 @@ hr {
 }
 
 .submitButton {
+  cursor: pointer;
   padding-top: 1.3vh;
   padding-bottom: 1.3vh;
+}
+
+.emptyMessage {
+  margin-bottom: 2vh;
 }

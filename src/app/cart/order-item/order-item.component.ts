@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Order} from '../../shared/order.model';
 
 @Component({
   selector: 'app-order-item',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderItemComponent implements OnInit {
 
+  @Input() order: Order;
+  dropDownOpen: boolean;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dropDownOpen = false;
+  }
+
+  onClicked() {
+    this.dropDownOpen = !this.dropDownOpen;
+  }
 
 }

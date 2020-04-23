@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: 'my-page',
+    canLoad: [AuthGuard],
+    loadChildren: () => import('./my-page/my-page.module').then( m => m.MyPagePageModule)
+  },
 ];
 
 @NgModule({

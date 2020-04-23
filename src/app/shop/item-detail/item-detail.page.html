@@ -21,7 +21,7 @@
                     <div class="descriptionBox">
                         <p class="bodyText"> {{item.description}}</p>
                     </div>
-                    <div class="formBox">
+                    <div class="formBox" *ngIf="item.availableQuantity>0">
                         <p class="bodyText boldText"> Quantity: </p>
                         <input [(ngModel)]="quantity" min="1" max="10" inputmode="number" class="quantityInput"
                                required>

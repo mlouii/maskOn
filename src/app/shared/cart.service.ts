@@ -93,8 +93,25 @@ export class CartService {
     }
 
     checkOutCart() {
+        if (this.cartItemsList.value.length < 1) {
+            return;
+        }
         this.itemsService.checkOutItems(this.cartItemsList.getValue());
+        this.orders.pipe(take(1)).subscribe(
+            data => {
+                data.push(new Order(this.cartItemsList.getValue(), new Date(), this.totalCartCost()));
+                this.ordersList.next(data);
+            }
+        );
         this.cartItemsList.next([]);
+    }
+
+    totalCartCost() {
+        let total = 0;
+        this.cartItemsList.value.forEach(cartItem => {
+            total = total + (cartItem[0].salePrice * cartItem[1]);
+        });
+        return total;
     }
 
     getItemQuantity(toGet: Item) {

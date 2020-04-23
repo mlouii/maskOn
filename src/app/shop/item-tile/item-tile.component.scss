@@ -1,4 +1,5 @@
 div {
+  cursor: pointer;
   padding: 5%;
   margin: 5% 9% 5% 9%;
   border-radius: 20px;
@@ -19,6 +20,10 @@ div {
     font-weight: lighter;
   }
 
+  .soldOut {
+    font-weight: normal;
+    color: #cf3c4f;
+  }
 
 }
 
