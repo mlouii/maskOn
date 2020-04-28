@@ -17,6 +17,7 @@ export class CartPage implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.fetchOrders();
     this.cartItemsSub = this.cartService.cartItems.subscribe(cartItems => {
       this.cartItemsList = cartItems;
     });

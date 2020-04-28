@@ -2,7 +2,7 @@
   <ion-grid>
     <ion-row (click)="onClicked()">
       <ion-col size="7">
-        <p class="bodyText">Order placed on {{this.order.timeStamp.toLocaleDateString()}}</p>
+        <p class="bodyText">Order placed on {{this.order.timeStamp}}</p>
       </ion-col>
       <ion-col size="4">
         <p class="bodyText">Total: <span class="priceText">${{this.order.totalPrice.toFixed(2)}}</span></p>

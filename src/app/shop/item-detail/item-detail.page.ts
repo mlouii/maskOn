@@ -31,7 +31,6 @@ export class ItemDetailPage implements OnInit {
             }
             this.itemsSub = this.itemsService.getItembyId(paramMap.get('itemId')).subscribe(data => {
                     this.item = data;
-                    console.log(this.item);
                 }
             );
         });

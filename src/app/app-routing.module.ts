@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'shop', pathMatch: 'full' },
   {
     path: 'shop',
-    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./shop/shop.module').then( m => m.ShopPageModule)
   },
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'my-page',
-    canLoad: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () => import('./my-page/my-page.module').then( m => m.MyPagePageModule)
   },
 ];

@@ -19,7 +19,6 @@ export class ShopPage implements OnInit {
     ngOnInit() {
         this.itemsSub = this.itemsService.items.subscribe(items => {
                 this.loadedItems = items;
-                console.log(this.loadedItems);
             }
         );
     }

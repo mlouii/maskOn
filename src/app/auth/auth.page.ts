@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 })
 export class AuthPage implements OnInit {
     isLogin: boolean;
+    userName: string;
+    password: string;
 
     constructor(private authService: AuthService, private router: Router, ) {
     }
@@ -18,7 +20,9 @@ export class AuthPage implements OnInit {
     }
 
     onLogin() {
-        this.authService.login();
+        this.authService.login(this.userName, this.password);
+        this.userName = '';
+        this.password = '';
         this.router.navigateByUrl('/shop');
     }
 

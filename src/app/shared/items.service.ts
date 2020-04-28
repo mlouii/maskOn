@@ -2,72 +2,20 @@ import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Item} from './item.model';
 import {filter, map, switchMap} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from "./auth.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ItemsService {
-    private itemsList = new BehaviorSubject<Item[]>([
-        new Item(
-            '1',
-            2.00,
-            'Regular Mask',
-            new Date(),
-            'Plain old ordinary mask. Keeps the germs in, but not out',
-            '../../../assets/basicMask.jpg',
-            5
-        ),
-        new Item(
-            '2',
-            5.00,
-            'Advanced Mask',
-            new Date(),
-            'Keeps everything out. Pollen, bacteria, viruses, you name it. However, not very easy to breathe in.',
-            '../../../assets/p95mask.jpg',
-            5
-        ),
-        new Item(
-            '3',
-            25.00,
-            'Gas Mask',
-            new Date(),
-            'Stuck in a place thats trying to take your life? We got you covered for that',
-            '../../../assets/gasMask.jpg',
-            5
-        ),
-        new Item(
-            '4',
-            1.00,
-            'Cloth Mask',
-            new Date(),
-            'Not exactly effective, but its cheap',
-            '../../../assets/clothMask.jpeg',
-            5
-        ),
-        new Item(
-            '5',
-            3.00,
-            'Cat Mask',
-            new Date(),
-            'Chotto Matte! No way can a face mask be this damn cute',
-            '../../../assets/catMask.jpg',
-            5
-        ),
-        new Item(
-            '6',
-            3.00,
-            'Pizza Mask',
-            new Date(),
-            'Oh no! It looks like the cat is already eating the pizza inside. You gotta buy this quick then',
-            '../../../assets/pizzaCatMask.jpg',
-            5
-        )
-    ]);
+    private itemsList = new BehaviorSubject<Item[]>([]);
 
-    constructor() {
+    constructor(private http: HttpClient, private authService: AuthService) {
     }
 
     get items() {
+        this.fetchItems();
         return this.itemsList.asObservable();
     }
 
@@ -78,12 +26,48 @@ export class ItemsService {
         );
     }
 
+    fetchItems() {
+        const allItems = [];
+        this.http.get('http://localhost:5000/items').subscribe(
+            datas => {
+                // @ts-ignore
+                for (const data of datas) {
+                    const toAdd = new Item(
+                        data.modelnumber,
+                        data.saleprice,
+                        data.modeltype,
+                        data.manufactureddate,
+                        data.description,
+                        data.imageUrl,
+                        data.availableinventory
+                    );
+                    allItems.push(toAdd);
+                }
+                this.itemsList.next(allItems);
+            }
+        );
+    }
+
     checkOutItems(cartItems: [Item, number][]) {
-        console.log('I\'m running!');
+        const userName = this.authService.email;
+        const key = (Math.floor(Math.random() * 99999) + 1).toString();
         let itemsListCopy = [...this.itemsList.getValue()];
         cartItems.map(cartItem => {
             const idx = itemsListCopy.findIndex(elem => elem.id === cartItem[0].id);
             itemsListCopy[idx].availableQuantity = itemsListCopy[idx].availableQuantity - cartItem[1];
+            this.http.patch(`http://localhost:5000/items/${itemsListCopy[idx].id}`,
+                {availableQuantity: itemsListCopy[idx].availableQuantity})
+                .subscribe();
+            this.http.post(`http://localhost:5000/${userName}/orders`, {
+                orderNumber: key,
+                empID: '422',
+                Items: {
+                    id: itemsListCopy[idx].id,
+                    quantity: cartItem[1]
+                },
+                saleValue: itemsListCopy[idx].salePrice * cartItem[1],
+                timeDate: new Date().toLocaleDateString()
+            }).subscribe();
         });
         this.itemsList.next(itemsListCopy);
     }
