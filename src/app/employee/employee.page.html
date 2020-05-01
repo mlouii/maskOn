@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div class="titleBar">
+          <ion-img class="logoTitleImage" src='../../assets/logo.svg'></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="textArea">
+    <div class="helloEmployee">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <p class="titleText"> Hello, {{this.employeeService.firstName}}! </p>
+            <p class="lighterText bodyText role"> {{this.employeeService.role}} Employee </p>
+          </ion-col>
+          <ion-col size="3" offset="5">
+            <div class="signOutButton" (click)="this.employeeService.logout()">
+              <p class="ion-no-margin"> Sign Out </p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <hr>
+    </div>
+    <app-sales-section *ngIf="employeeService.role === 'sales' || employeeService.role === 'admin'"></app-sales-section>
+    <app-employee-section *ngIf="employeeService.role === 'HR' || employeeService.role === 'admin'"></app-employee-section>
+    <app-engineer-section *ngIf="employeeService.role === 'engineer' || employeeService.role === 'admin'"></app-engineer-section>
+  </div>
+</ion-content>

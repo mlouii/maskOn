@@ -5,20 +5,21 @@ import {
     Router,
     RouterStateSnapshot,
 } from '@angular/router';
-import {AuthService} from '../shared/auth.service';
 import {Observable} from 'rxjs';
+import {EmployeeService} from '../shared/employee.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-    constructor(private authService: AuthService, private router: Router) {}
+export class EmployeeAuthGuard implements CanActivate {
+    constructor(private employeeService: EmployeeService, private router: Router) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
         Observable<boolean> | Promise<boolean> | boolean {
-        if (!this.authService.userIsAuthenticated) {
-            this.router.navigateByUrl('/auth');
+        if (this.employeeService.role === 'none') {
+            this.router.navigateByUrl('/employee-auth');
+            return false;
         }
-        return this.authService.userIsAuthenticated;
+        return true;
     }
 }

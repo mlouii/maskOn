@@ -1,0 +1,73 @@
+<div class="employeeSection">
+  <p class="bodyText boldText">Total Revenue: <span class="lighterText">${{this.totalRevenue.toFixed(2)}}</span> </p>
+  <div class="sectionBlock">
+    <p class="bodyText">Revenues by Customer</p>
+    <div class="sectionList">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <p class="label">Customer ID</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Revenue</p>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let customer of this.customerRevenues">
+          <ion-col size="2">
+            <p class="bodyText">{{customer[0]}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">${{customer[1].toFixed(2)}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="sectionBlock">
+    <p class="bodyText"> List of Orders </p>
+    <div class="sectionList">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <p class="label">Order Number</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Date</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Customer ID</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Model Num</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Quantity</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Sale Value</p>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let order of this.allOrders">
+          <ion-col size="2">
+            <p class="bodyText">{{order.orderNumber}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">{{order.date}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">{{order.customerId}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">{{order.modelNumber}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">{{order.quantity}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">${{order.saleValue.toFixed(2)}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</div>

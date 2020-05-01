@@ -6,6 +6,7 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {CartService} from './shared/cart.service';
 import {Subscription} from 'rxjs';
 import {AuthService} from './shared/auth.service';
+import {EmployeeService} from './shared/employee.service';
 
 @Component({
     selector: 'app-root',
@@ -22,6 +23,7 @@ export class AppComponent {
         private statusBar: StatusBar,
         private cartService: CartService,
         private authService: AuthService,
+        private employeeService: EmployeeService,
     ) {
         this.initializeApp();
     }

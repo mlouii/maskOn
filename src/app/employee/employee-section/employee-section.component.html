@@ -1,0 +1,60 @@
+<div class="employeeSection">
+  <div class="sectionBlock" *ngIf="this.employeeService.role === 'admin'">
+    <p class="bodyText boldText">Total Employee Salary Expenses: <span class="lighterText">${{this.totalSalary.toFixed(2)}}/hour</span> </p>
+    <p class="bodyText boldText">Total Employee Bonus Expenses: <span class="lighterText">${{this.totalBonuses.toFixed(2)}}</span> </p>
+  </div>
+  <div class="sectionBlock">
+    <p class="bodyText">List of Employees</p>
+    <div class="sectionList">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <p class="label">Employee ID</p>
+          </ion-col>
+          <ion-col size="3">
+            <p class="label">Name</p>
+          </ion-col>
+          <ion-col size="1">
+            <p class="label">Sex</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Role</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Salary</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="label">Bonus</p>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let employee of employees">
+          <ion-col size="2">
+            <p class="bodyText">{{employee.employeeId}}</p>
+          </ion-col>
+          <ion-col size="3">
+            <p class="bodyText">{{employee.firstName}} {{employee.lastName}}</p>
+          </ion-col>
+          <ion-col size="1">
+            <p class="bodyText">{{employee.sex}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">{{employee.jobType}}</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">${{employee.salary}}/Hour</p>
+          </ion-col>
+          <ion-col size="2">
+            <p class="bodyText">${{employee.bonus}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3" offset="9">
+            <div class="submitButton" (click)="presentModal()">
+              Add Employee
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</div>

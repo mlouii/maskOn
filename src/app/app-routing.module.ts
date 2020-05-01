@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {AuthGuard} from './auth/auth.guard';
+import {EmployeeAuthGuard} from './employee-auth/employee-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'shop', pathMatch: 'full' },
@@ -26,6 +27,15 @@ const routes: Routes = [
     path: 'my-page',
     canActivate: [AuthGuard],
     loadChildren: () => import('./my-page/my-page.module').then( m => m.MyPagePageModule)
+  },
+  {
+    path: 'employee-auth',
+    loadChildren: () => import('./employee-auth/employee-auth.module').then( m => m.EmployeeAuthPageModule)
+  },
+  {
+    path: 'employee',
+    canActivate: [EmployeeAuthGuard],
+    loadChildren: () => import('./employee/employee.module').then( m => m.EmployeePageModule)
   },
 ];
 

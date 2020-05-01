@@ -97,5 +97,18 @@
   .lighterText {
     font-weight: lighter;
   }
+
+  .signOutButton {
+    cursor: pointer;
+    margin-top: 7vh;
+    text-align: center;
+    padding: 6px;
+    background-color: white;
+    border: 1px solid  #7892CB;
+    color: #7892CB;
+    font-weight: bold;
+    font-size: 1.6rem;
+    width: 300px;
+  }
 }
 

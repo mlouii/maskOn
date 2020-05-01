@@ -30,4 +30,8 @@ export class AuthPage implements OnInit {
         this.isLogin = !this.isLogin;
     }
 
+    switchAuth() {
+        this.router.navigateByUrl('/employee-auth');
+    }
+
 }

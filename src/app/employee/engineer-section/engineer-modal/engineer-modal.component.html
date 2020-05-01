@@ -1,0 +1,44 @@
+<div class="bod">
+  <h2>Add Model</h2>
+  <ion-grid class="ion-no-margin">
+    <ion-row>
+      <ion-col size="4">
+        <input [(ngModel)]="this.modelNumber" class="datainput" type="text" placeholder="Model Number">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <input [(ngModel)]="this.manufacturedDate" class="datainput" type="date" placeholder="Manufactured Date">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <input [(ngModel)]="this.imageURL" class="datainput" type="text" placeholder="Image URL">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <input [(ngModel)]="this.modelTitle" class="datainput" type="text" placeholder="Title">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <input [(ngModel)]="this.salePrice" class="datainput" type="text" placeholder="Sale Price">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <textarea [(ngModel)]="this.description" type="date" class="datainput" placeholder="Description"></textarea>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<ion-grid class="ion-no-margin">
+  <ion-row>
+    <ion-col size="3" offset="8">
+      <div class="submitButton" (click)="onSubmit()">
+        Add to Database
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

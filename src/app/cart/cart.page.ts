@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from '../shared/cart.service';
 import {Subscription} from 'rxjs';
 import {Item} from '../shared/item.model';
@@ -9,7 +9,7 @@ import {Order} from '../shared/order.model';
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
 })
-export class CartPage implements OnInit {
+export class CartPage implements OnInit, OnDestroy {
   cartItemsSub: Subscription;
   cartOrdersSub: Subscription;
   cartItemsList: [Item, number][];
@@ -24,6 +24,11 @@ export class CartPage implements OnInit {
     this.cartOrdersSub = this.cartService.orders.subscribe(orders => {
       this.ordersList = orders;
     });
+  }
+
+  ngOnDestroy() {
+    this.cartOrdersSub.unsubscribe();
+    this.cartItemsSub.unsubscribe();
   }
 
   checkOut() {

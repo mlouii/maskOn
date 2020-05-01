@@ -1,0 +1,74 @@
+<div class="bod">
+    <h2>Add Employee</h2>
+    <ion-grid class="ion-no-margin">
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.firstName" class="datainput" type="text" placeholder="First Name">
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.middleName" class="datainput" type="text" placeholder="Middle Name">
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.lastName" class="datainput" type="text" placeholder="Last Name">
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.employeeeId" class="datainput" type="text" placeholder="Employee ID">
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.dob" type="date" class="datainput" placeholder="Date of Birth">
+            </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <input [(ngModel)]="this.ssn" type="password" class="datainput" placeholder="SSN">
+        </ion-col>
+      </ion-row>
+        <ion-row>
+            Sex:
+            <ion-col size="4">
+                <select class="dataselect" [(ngModel)]="this.sex">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            Employee Role:
+            <ion-col size="4">
+                <select class="dataselect" [(ngModel)]="this.role">
+                    <option value="HR">HR</option>
+                    <option value="engineer">Engineer</option>
+                    <option value="sales">Sales</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.salary" type="number" class="datainput" placeholder="Salary">
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="4">
+                <input [(ngModel)]="this.bonus" type="number" class="datainput" placeholder="Bonus">
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+<ion-grid class="ion-no-margin">
+    <ion-row>
+        <ion-col size="3" offset="8">
+            <div class="submitButton" (click)="onSubmit()">
+                Add to Database
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-grid>

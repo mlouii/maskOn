@@ -1,7 +1,7 @@
 <ion-app>
   <ion-header class="ion-no-border">
     <ion-toolbar>
-      <ion-buttons class="ion-padding-start" slot="start">
+      <ion-buttons class="ion-padding-start" slot="start" *ngIf="this.employeeService.role === 'none'">
         <ion-button routerLink="/shop">
           Shop
         </ion-button>
@@ -10,14 +10,17 @@
         </ion-button>
       </ion-buttons>
       <ion-buttons class="ion-padding-end" slot="end">
-        <ion-button class="ion-no-padding ion-no-margin" routerLink="/my-page" *ngIf="this.authService.userIsAuthenticated">
+        <ion-button class="ion-no-padding ion-no-margin" *ngIf="this.employeeService.firstName">
+          <p class="usersName"> {{this.employeeService.firstName}} </p>
+        </ion-button>
+        <ion-button class="ion-no-padding ion-no-margin" routerLink="/my-page" *ngIf="this.authService.userIsAuthenticated && !this.employeeService.firstName">
           <p class="usersName"> {{this.authService.firstName}} </p>
         </ion-button>
-        <ion-button class="ion-no-padding ion-no-margin" routerLink="/cart" *ngIf="this.authService.userIsAuthenticated">
+        <ion-button class="ion-no-padding ion-no-margin" routerLink="/cart" *ngIf="this.authService.userIsAuthenticated && !this.employeeService.firstName">
           <ion-icon class="iconButton" name="cart-outline"></ion-icon>
           {{this.cartQuantity}}
         </ion-button>
-        <ion-button *ngIf="!this.authService.userIsAuthenticated" routerLink="/auth">
+        <ion-button *ngIf="!this.authService.userIsAuthenticated && !this.employeeService.firstName" routerLink="/auth">
           Login to continue
         </ion-button>
       </ion-buttons>

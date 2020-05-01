@@ -1,0 +1,42 @@
+<div class="employeeSection">
+  <p class="bodyText">List of Models</p>
+  <div class="sectionList">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <p class="label">Model Number</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="label">Price</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="label">Manufactured</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="label">Quantity</p>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let model of this.modelsList">
+        <ion-col size="3">
+          <p class="bodyText">{{model.modelNumber}}</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="bodyText">${{model.price.toFixed(2)}}</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="bodyText">{{model.manufactured}}</p>
+        </ion-col>
+        <ion-col size="3">
+          <p class="bodyText">{{model.quantity}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3" offset="9">
+          <div class="submitButton" (click)="presentModal()">
+            Add Model
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
