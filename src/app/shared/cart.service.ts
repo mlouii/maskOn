@@ -30,7 +30,8 @@ export class CartService {
     fetchOrders() {
         console.log('fetching!!');
         const newOrdersList = [];
-        this.http.get(`http://localhost:5000/${this.authService.email}/orders`).subscribe(
+        // tslint:disable-next-line:max-line-length
+        this.http.get<{pertainingTo: string, modelnumber: number, quantity: number, salevalue: number, timedate: string}[]>(`http://localhost:5000/${this.authService.email}/orders`).subscribe(
             data => {
                 const keys = data.map(order => order.pertainingTo).filter((elem, index, self) => {
                     return index === self.indexOf(elem);
